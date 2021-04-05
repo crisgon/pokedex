@@ -3,6 +3,7 @@
 :root {
   --red: #DE1337;
   --black: #343434;
+  --white: #fff;
 }
 
 * {
@@ -70,4 +71,66 @@ body {
   border: 0;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+
+/*card */
+
+.poke-list {
+  width: 1004px;
+  margin: 2rem auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-container {
+  width: 184px;
+  height: 147px;
+  margin-right: 21px;
+  margin-bottom: 32px;
+  background-color: var(--white);
+  border-radius: 5px;
+  position: relative;
+}
+
+.card-container:nth-child(5n) {
+  margin-right: 0;
+}
+
+
+.card-container img {
+  width: 114px;
+  height: 114px;
+  display: block;
+  margin: 0 auto;
+}
+
+.card-container .poke-number {
+  color: #000;
+  position: absolute;
+  top: 4px;
+  right: 15px;
+}
+
+.card-container .poke-name {
+  text-align: center;
+  color: var(--black);
+  font-size: 16px;
+}
+
+.poke-types {
+  list-style: none;
+  position: absolute;
+  bottom: 11px;
+  right: 15px;
+}
+
+.poke-types li {
+  width: 20px;
+  height: 20px;
+}
+
+.poke-list li img  {
+  max-width: 100%;
+  height: 20px;
 }
