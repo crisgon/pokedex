@@ -51,6 +51,11 @@ function loadMorePokemons() {
 
 window.addEventListener("load", () => getAndPopulatePokeList({offset, limit}));
 
+$loadMoreBtn.addEventListener("click", () => {
+  getAndPopulatePokeList({offset, limit});
+  $loadMoreBtn.style.display = 'none';
+});
+
 window.addEventListener("scroll", () => {
   if(document.body.offsetHeight < window.innerHeight + window.scrollY) {
     loadMorePokemons();
