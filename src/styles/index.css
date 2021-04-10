@@ -10,6 +10,15 @@
   flex-wrap: wrap;
 }
 
+.load-more {
+  margin: 0 auto;
+  padding: .5rem 2rem;
+  display: block;
+  border: 0;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
 .card-container {
   width: 184px;
   height: 147px;
