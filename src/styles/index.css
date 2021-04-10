@@ -12,11 +12,26 @@
 
 .load-more {
   margin: 0 auto;
-  padding: .5rem 2rem;
+  padding: .5rem 1rem;
   display: block;
   border: 0;
   border-radius: 15px;
   cursor: pointer;
+}
+
+.back-to-top {
+  width: 80px;
+  height: 80px;
+  border: 0;
+  background-color: #fff;
+  border-radius: 50%;
+  font-size: 2rem;
+  position: fixed;
+  bottom: -50px;
+  right: 50px;
+  cursor: pointer;
+  opacity: 0;
+  outline: 0;
 }
 
 .card-container {

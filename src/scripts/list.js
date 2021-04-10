@@ -1,5 +1,6 @@
 const $pokemonList = document.getElementById("pokemon-list");
 const $loadMoreBtn = document.getElementById("load-more");
+const $backToTopBtn = document.getElementById("back-to-top");
 
 let offset =  1, limit = 14;
 
@@ -48,15 +49,29 @@ function loadMorePokemons() {
   getAndPopulatePokeList({offset, limit});
 }
 
+function backToTop() {
+  window.scrollTo({top: 0, behavior: 'smooth'})
+}
 
-window.addEventListener("load", () => getAndPopulatePokeList({offset, limit}));
+
+$backToTopBtn.addEventListener("click", backToTop);
 
 $loadMoreBtn.addEventListener("click", () => {
   getAndPopulatePokeList({offset, limit});
   $loadMoreBtn.style.display = 'none';
 });
 
+window.addEventListener("load", () => getAndPopulatePokeList({offset, limit}));
+
 window.addEventListener("scroll", () => {
+  $backToTopBtn.style.opacity = 1;
+  $backToTopBtn.style.bottom = '50px';
+  
+  if(window.scrollY === 0) {
+    $backToTopBtn.style.opacity = 0;
+    $backToTopBtn.style.bottom = '-50px';
+  }
+
   if(document.body.offsetHeight < window.innerHeight + window.scrollY) {
     loadMorePokemons();
   }
