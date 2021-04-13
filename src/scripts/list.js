@@ -20,10 +20,15 @@ async function getAndPopulatePokeList(info) {
   }
 }
 
+function goToPokemonPage(id) {
+
+  location.href = `details.html?id=${id}`;
+}
+
 
 function generatePokemonCard(pokemon) {
   return `
-  <div class="card-container">
+  <div class="card-container" onclick="goToPokemonPage(${pokemon.number})">
     <span class="poke-number">#${pokemon.number}</span>
     <img src="${pokemon.photo}" alt="${pokemon.name}">
 
@@ -42,6 +47,7 @@ function generatePokemonCard(pokemon) {
 
 function addPokemonOnDomList(pokemon) {
   $pokemonList.innerHTML += generatePokemonCard(pokemon);
+  
 }
 
 function loadMorePokemons() {

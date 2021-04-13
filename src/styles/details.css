@@ -91,6 +91,7 @@
   font-size: 40px;
   font-weight: bold;
   color: var(--red);
+  text-transform: capitalize;
 }
 
 .card-details-header span {
