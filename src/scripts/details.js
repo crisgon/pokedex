@@ -1,4 +1,9 @@
 const $card = document.getElementById("card-details");
+const $arrowLeft = document.querySelector(".arrow-left");
+const $arrowRight = document.querySelector(".arrow-right");
+const $randomBtn = document.querySelector('.random');
+
+let id = null;
 
 async function getPokemonDetails(id) {
   const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then(res => res.json());
@@ -67,4 +72,41 @@ window.addEventListener('load', () => {
 
   getPokemonDetails(pokeid);
 
+  id = pokeid;
+
+});
+
+window.addEventListener('popstate', () => {
+  const [_, pokeid] = window.location.search.split("=");
+
+  getPokemonDetails(pokeid);
+
+  id = pokeid;
+});
+
+$arrowLeft.addEventListener('click', () => {
+  if(id === 1) {
+    return;
+  }
+
+  id = Number(id) - 1;
+  history.pushState({}, '', `details.html?id=${id}`);
+  getPokemonDetails(id);
+});
+
+$arrowRight.addEventListener('click', () => {
+  if(id === 1) {
+    return;
+  }
+
+  id = Number(id) + 1;
+  history.pushState({}, '', `details.html?id=${id}`);
+  getPokemonDetails(id);
+});
+
+$randomBtn.addEventListener('click', () => {
+  const id = Math.round(Math.random() * 932);
+
+  history.pushState({}, '', `details.html?id=${id}`);
+  getPokemonDetails(id);
 })
