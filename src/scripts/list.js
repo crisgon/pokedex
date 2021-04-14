@@ -1,6 +1,7 @@
 const $pokemonList = document.getElementById("pokemon-list");
 const $loadMoreBtn = document.getElementById("load-more");
 const $backToTopBtn = document.getElementById("back-to-top");
+const $randomBtn = document.querySelector('.random');
 
 let offset =  1, limit = 14;
 
@@ -20,15 +21,11 @@ async function getAndPopulatePokeList(info) {
   }
 }
 
-function goToPokemonPage(id) {
-
-  location.href = `details.html?id=${id}`;
-}
 
 
 function generatePokemonCard(pokemon) {
   return `
-  <div class="card-container" onclick="goToPokemonPage(${pokemon.number})">
+  <a class="card-container" href="details.html?id=${pokemon.number}">
     <span class="poke-number">#${pokemon.number}</span>
     <img src="${pokemon.photo}" alt="${pokemon.name}">
 
@@ -41,8 +38,8 @@ function generatePokemonCard(pokemon) {
               </li>`
     }).join("")}
     </ul>
-  </div>
-  `
+  </a>
+ `
 }
 
 function addPokemonOnDomList(pokemon) {
@@ -83,4 +80,29 @@ window.addEventListener("scroll", () => {
   }
 });
 
+$randomBtn.addEventListener('click', () => {
+  const id = Math.round(Math.random() * 932);
 
+  location.href = `details.html?id=${id}`;
+});
+
+const types = {
+  "Normal" : "#6d6d4e",
+  "Fire": "#f08030",
+  "Fighting": "#c03028",
+  "Water": "#6890f0",
+  "Flying": "#a890f0",
+  "Grass": "#78c850",
+  "Poison": "#a040a0",
+  "Electric": "#f8d030",
+  "Ground": "#e0c068",
+  "Psychic": "#f85888",
+  "Rock": "#b8a038",
+  "Ice": "#98d8d8",
+  "Bug": "#a8b820",
+  "Dragon": "#7038f8",
+  "Ghost": "#705898",
+  "Dark": "#705848",
+  "Steel": "#b8b8d0",
+  "Fairy": "#ee99ac",
+}    

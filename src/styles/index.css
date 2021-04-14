@@ -42,6 +42,11 @@
   background-color: var(--white);
   border-radius: 5px;
   position: relative;
+  transition: all .4s;
+}
+
+.card-container:hover {
+  transform: translateY(-5px);
 }
 
 .card-container:nth-child(5n) {

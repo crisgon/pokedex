@@ -23,9 +23,22 @@
   border-radius: 5px;
 }
 
-.random img {
-  width: 23px;
-  height: 20px;
+.random:hover {
+  cursor: pointer;
+}
+
+.random:hover svg {
+  animation: randomAnimation infinite .3s alternate-reverse;
+}
+
+@keyframes randomAnimation {
+  0% {
+    transform: translateX(0px);
+  }
+
+  100% {
+    transform: translateX(5px);
+  }
 }
 
 .search-container {

@@ -109,4 +109,4 @@ $randomBtn.addEventListener('click', () => {
 
   history.pushState({}, '', `details.html?id=${id}`);
   getPokemonDetails(id);
-})
+});
