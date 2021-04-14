@@ -2,6 +2,7 @@ const $card = document.getElementById("card-details");
 const $arrowLeft = document.querySelector(".arrow-left");
 const $arrowRight = document.querySelector(".arrow-right");
 const $randomBtn = document.querySelector('.random');
+const $searchForm = document.getElementById("search-form");
 
 let id = null;
 
@@ -109,4 +110,12 @@ $randomBtn.addEventListener('click', () => {
 
   history.pushState({}, '', `details.html?id=${id}`);
   getPokemonDetails(id);
+});
+
+$searchForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  let pokeName = e.target[0].value;
+
+  location.href = `details.html?name=${pokeName}`;
 });

@@ -2,6 +2,7 @@ const $pokemonList = document.getElementById("pokemon-list");
 const $loadMoreBtn = document.getElementById("load-more");
 const $backToTopBtn = document.getElementById("back-to-top");
 const $randomBtn = document.querySelector('.random');
+const $searchForm = document.getElementById("search-form");
 
 let offset =  1, limit = 14;
 
@@ -20,8 +21,6 @@ async function getAndPopulatePokeList(info) {
 
   }
 }
-
-
 
 function generatePokemonCard(pokemon) {
   return `
@@ -85,6 +84,21 @@ $randomBtn.addEventListener('click', () => {
 
   location.href = `details.html?id=${id}`;
 });
+
+$searchForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  let pokeName = e.target[0].value;
+
+  location.href = `details.html?name=${pokeName}`;
+});
+
+
+
+
+
+
+
 
 const types = {
   "Normal" : "#6d6d4e",
