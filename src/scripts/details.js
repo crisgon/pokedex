@@ -28,8 +28,10 @@ const typesColors = {
 }    
 
 
-async function getPokemonDetails(id) {
-  const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then(res => res.json());
+async function getPokemonDetails(pokemonId) {
+  const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`).then(res => res.json());
+
+  id = data.id;
 
   inserCardIntoHTML(generateCard(data));
 }
@@ -56,6 +58,7 @@ function generateCard(pokemon) {
       <ul class="pokemon-types">
         ${pokemon.types.map(({ type }) => {
           const imgName = type.name.charAt().toUpperCase() + type.name.substr(1);
+
           return `<li style="border-color: ${typesColors[type.name]}">
                     <img src="src/images/pokemon-types/${imgName}.png" alt="Normal">
                     <span style="background-color: ${typesColors[type.name]}">${type.name}</span>
@@ -121,6 +124,7 @@ $arrowRight.addEventListener('click', () => {
   if(id === 1) {
     return;
   }
+
 
   id = Number(id) + 1;
   history.pushState({}, '', `details.html?id=${id}`);
