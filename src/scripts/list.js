@@ -90,7 +90,7 @@ $searchForm.addEventListener('submit', (e) => {
 
   let pokeName = e.target[0].value;
 
-  location.href = `details.html?name=${pokeName}`;
+  location.href = `details.html?name=${pokeName.toLowerCase()}`;
 });
 
 

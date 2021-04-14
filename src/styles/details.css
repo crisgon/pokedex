@@ -64,7 +64,6 @@
 .card-details {
   width: 404px;
   padding: 1rem;
-  background-color: var(--white);
   border-radius: 8px;
   position: absolute;
   top: 50%;
@@ -190,4 +189,26 @@
 
 .pokemon-stats li:nth-of-type(6) {
   background-color: #FA92B2;
+}
+
+
+.load-animation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.load-animation svg {
+  width: 100px;
+  margin: 0 auto;
+  animation: loadAnimation infinite .4s alternate-reverse;
+}
+
+@keyframes loadAnimation {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(20%);
+  }
 }
