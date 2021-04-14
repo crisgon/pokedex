@@ -6,6 +6,28 @@ const $searchForm = document.getElementById("search-form");
 
 let id = null;
 
+const typesColors = {
+  "normal" : "#6d6d4e",
+  "fire": "#f08030",
+  "fighting": "#c03028",
+  "water": "#6890f0",
+  "flying": "#a890f0",
+  "grass": "#78c850",
+  "poison": "#a040a0",
+  "electric": "#f8d030",
+  "ground": "#e0c068",
+  "psychic": "#f85888",
+  "rock": "#b8a038",
+  "ice": "#98d8d8",
+  "bug": "#a8b820",
+  "dragon": "#7038f8",
+  "ghost": "#705898",
+  "dark": "#705848",
+  "steel": "#b8b8d0",
+  "fairy": "#ee99ac",
+}    
+
+
 async function getPokemonDetails(id) {
   const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then(res => res.json());
 
@@ -34,9 +56,9 @@ function generateCard(pokemon) {
       <ul class="pokemon-types">
         ${pokemon.types.map(({ type }) => {
           const imgName = type.name.charAt().toUpperCase() + type.name.substr(1);
-          return `<li>
+          return `<li style="border-color: ${typesColors[type.name]}">
                     <img src="src/images/pokemon-types/${imgName}.png" alt="Normal">
-                    <span>${type.name}</span>
+                    <span style="background-color: ${typesColors[type.name]}">${type.name}</span>
                   </li>`
         }).join("")}
       </ul>

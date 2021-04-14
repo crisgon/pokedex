@@ -100,23 +100,3 @@ $searchForm.addEventListener('submit', (e) => {
 
 
 
-const types = {
-  "Normal" : "#6d6d4e",
-  "Fire": "#f08030",
-  "Fighting": "#c03028",
-  "Water": "#6890f0",
-  "Flying": "#a890f0",
-  "Grass": "#78c850",
-  "Poison": "#a040a0",
-  "Electric": "#f8d030",
-  "Ground": "#e0c068",
-  "Psychic": "#f85888",
-  "Rock": "#b8a038",
-  "Ice": "#98d8d8",
-  "Bug": "#a8b820",
-  "Dragon": "#7038f8",
-  "Ghost": "#705898",
-  "Dark": "#705848",
-  "Steel": "#b8b8d0",
-  "Fairy": "#ee99ac",
-}    
