@@ -17,8 +17,8 @@ async function getAndPopulatePokeList(info) {
       types: data.types.map(({ type }) => type.name)
     }
 
-    addPokemonOnDomList(pokeInfo);
 
+    addPokemonOnDomList(pokeInfo);
   }
 }
 
@@ -47,7 +47,7 @@ function addPokemonOnDomList(pokemon) {
 }
 
 function loadMorePokemons() {
-  offset+= limit + 1;
+  offset+= limit;
   getAndPopulatePokeList({offset, limit});
 }
 
@@ -59,8 +59,8 @@ function backToTop() {
 $backToTopBtn.addEventListener("click", backToTop);
 
 $loadMoreBtn.addEventListener("click", () => {
+  offset += limit + 1;
   getAndPopulatePokeList({offset, limit});
-  $loadMoreBtn.style.display = 'none';
 });
 
 window.addEventListener("load", () => getAndPopulatePokeList({offset, limit}));
@@ -72,10 +72,6 @@ window.addEventListener("scroll", () => {
   if(window.scrollY === 0) {
     $backToTopBtn.style.opacity = 0;
     $backToTopBtn.style.bottom = '-50px';
-  }
-
-  if(document.body.offsetHeight < window.innerHeight + window.scrollY) {
-    loadMorePokemons();
   }
 });
 
