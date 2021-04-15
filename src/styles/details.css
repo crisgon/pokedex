@@ -62,7 +62,8 @@
 /* Card details */
 
 .card-details {
-  width: 404px;
+  width: 100%;
+  max-width: 404px;
   padding: 1rem;
   border-radius: 8px;
   position: absolute;
@@ -210,5 +211,32 @@
   }
   100% {
     transform: scale(20%);
+  }
+}
+
+@media (max-width: 500px) {
+  .card-details {
+    margin-top: 2rem;
+  }
+  .back-link {
+    left: unset;
+    right: 47px;
+  }
+
+  .arrow svg > path {
+    fill: var(--black);
+  }
+
+  .arrow {
+    z-index: 1;
+  }
+
+  
+  .arrow-right:hover {
+    animation-duration: 0ms;
+  }
+
+  .arrow-left:hover {
+    animation-duration: 0ms;
   }
 }

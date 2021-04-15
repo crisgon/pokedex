@@ -4,10 +4,12 @@
 /*card */
 
 .poke-list {
-  width: 1004px;
+  width: 100%;
+  max-width: 1004px;
   margin: 2rem auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .load-more {
@@ -44,6 +46,7 @@
   position: relative;
   transition: all .4s;
 }
+
 
 .card-container:hover {
   transform: translateY(-5px);
@@ -89,4 +92,22 @@
 .poke-list li img  {
   max-width: 100%;
   height: 20px;
+}
+
+ @media (max-width: 993px) {
+  .card-container,
+  .card-container:nth-child(5n)  {
+    width: 160px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+} 
+
+
+@media (max-width: 320px) {
+  .card-container,
+  .card-container:nth-child(5n) {
+    width: 80%;
+    margin-right: 0;
+  } 
 }

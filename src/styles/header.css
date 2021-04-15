@@ -1,11 +1,14 @@
 
 .main-header {
-  width: 410px;
+  width: 100%;
+  max-width: 410px;
   margin: 2rem auto 0 auto;
 }
 
 .logo {
-  width: 365px;
+  width: 100%;
+  max-width: 365px;
+  max-width: 100%;
   display: block;
   margin: 0 auto;
 }
@@ -42,7 +45,7 @@
 }
 
 .search-container {
-  width: 404px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -67,3 +70,25 @@
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
+
+@media (max-width: 460px) {
+
+  .search-container {
+    width: 340px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto;
+    padding-left: 5px;
+  }
+
+  .random {
+    width: 100px;
+    margin-bottom: .5rem;
+  }
+
+  .logo { 
+    max-width: 250px;
+  }
+  
+}
+
